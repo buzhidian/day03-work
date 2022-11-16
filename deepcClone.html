@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课堂</title>
+</head>
+
+<body>
+    <div id="app">
+    </div>
+</body>
+<script>
+    // 使用递归实现深拷贝
+    function deepClone(obj) {
+        // 判断类型
+        if (obj == null) {  //null
+            return obj
+        }
+        if (obj instanceof Date) {  //日期对象
+            return new Date()
+        }
+        if (obj instanceof RegExp) {  //正则对象
+            return new RegExp()
+        }
+        if (typeof obj !== "object") {  //判断是否基本数据类型
+            return obj
+        }
+        let res = new obj.constructor()
+        for (key in obj) {
+            res[key] = deepClone(obj[key]) //调用自身
+        }
+        return res;
+    }
+
+    let obj1 = {
+        name:"user",
+        num:13,
+        say:function(){
+            console.log("这是方法");
+        },
+        obs:{
+            color:"红色"
+        }
+    }
+    console.log(obj1,"更改前的obj1");
+    let obj2 = deepClone(obj1)
+    obj2.num = 14
+    obj2.say()
+    obj2.obs.color = "黄色"
+    console.log(obj1,"更改后的obj1");
+    console.log(obj2,"obj2");
+
+    let arr = [1,2,3,[5,6,8,9],12,[24,5,6]]
+    let arr1 = deepClone(arr)
+    console.log(arr1);
+</script>
+
+</html>

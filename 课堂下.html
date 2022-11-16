@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课堂</title>
+</head>
+
+<body>
+    <div id="app">
+    </div>
+</body>
+<script>
+    // 一、实现继承的方法
+
+    // 1.原型的继承
+    // function Super() {
+    //     this.a = 1
+    // }
+    // Super.prototype.say = function () {
+    //     console.log("给super添加的方法");
+    // }
+    // function Sub() {}
+    // Sub.prototype = new Super()
+
+    // let test = new Sub()
+    // test.say()
+
+
+    // 原型继承的缺点：
+    /* function Super() {
+        this.a = [1,2]
+    }
+    function Sub() {}
+    Sub.prototype = new Super()
+
+    const test1 = new Sub()
+    test1.a.push(3)
+    console.log(test1.a);
+    
+    const test2 = new Sub()
+    console.log(test2.a); */
+
+
+
+    // 2.盗用构造函数
+    /* let Super = function () {
+        this.a = 1
+    }
+    Super.prototype.c = 3
+    let Sub = function () {
+        Super.call(this)
+        this.b = 2
+    }
+
+    const test = new Sub()
+    console.log(test,"test");
+    const test1 = new Super()
+    console.log(test1,"test1"); */
+
+    
+    // 3.组合继承
+    /* function Super() {
+        this.a = [1,2]
+    }
+    Super.prototype.say = function () {
+        console.log("给super添加的方法");
+    }
+    let Sub = function () {
+        Super.call(this)
+        this.b = 2
+    }
+    Sub.prototype = new Super()
+
+    const test1 = new Sub()
+    test1.say()
+    test1.a.push(3)
+    console.log(test1.a);
+    const test2 = new Sub()
+    console.log(test2.a); */
+
+
+    // 4.原型式继承
+
+    // es5之前---
+    /* const obj = {a:1}
+    function createObj(o) {
+        function Fn() {}
+        Fn.prototype = o;
+        return new Fn()
+    }
+
+    const test = createObj(obj)
+    console.log(test); */
+
+    // es5之后---
+    /* const obj1 = {a:2}
+    const test1 = Object.create(obj)
+    console.log(test1); */
+
+    // 5.寄生式继承
+
+    // 6.寄生式组合继承
+
+
+
+    // 二、深拷贝和浅拷贝
+
+    // 1.堆和栈
+
+
+
+
+
+
+
+
+</script>
+
+</html>

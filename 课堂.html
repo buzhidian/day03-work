@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课堂</title>
+</head>
+
+<body>
+    <div id="app">
+    </div>
+</body>
+<script>
+    // 多维数组变一堆数组
+    let array = [1,2,3,[5,6,9],12,,[34,5,6]]
+
+
+    console.log("------分割线------");
+    // 事件循环 event loop
+    /* console.log(1);
+    var timer = setTimeout(()=>{
+        console.log(2);
+    },0)
+
+    new Promise((resolve,reject)=>{
+        console.log(3);
+        resolve()
+    }).then(()=>{
+        console.log(4);
+    })
+    console.log(5); */
+
+    
+    console.log("------分割线------");
+    // this
+    /* function foo1() {
+        console.log(this);
+    }
+    function foo2() {
+        console.log(this);
+        foo1()
+    }
+    function foo3() {
+        console.log(this);
+        foo2()
+    }
+    foo3() */
+
+    
+    console.log("------分割线------");
+    // 案例 ******
+    /* function foo() {
+        console.log(this);
+    }
+    var obj = {
+        name:"why",
+        foo:foo,
+    }
+    obj.foo()
+
+    var bar = obj.foo
+    bar(); */
+
+    
+    console.log("------分割线------");
+    // this指向的转换
+    function foo() {
+        console.log(this);
+    }
+    var obj = {
+        name:"why",
+        foo:foo,
+    }
+
+    foo.call(obj)
+    foo.apply(obj)
+    foo.apply("aaaaaa")
+
+    
+    console.log("------分割线------");
+    // 原型
+    
+
+
+
+</script>
+
+</html>
